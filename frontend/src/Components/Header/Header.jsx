@@ -16,7 +16,7 @@ function Header() {
                         <li>Prices</li>
                     </ul>
                 </nav>
-                <a className="buy-button">Try NOW for FREE</a>
+                <a href="#" className="buy-button">Try NOW for FREE</a>
             </header>
         </div>
     )

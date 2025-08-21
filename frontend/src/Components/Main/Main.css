@@ -1,0 +1,43 @@
+main {
+    color: aliceblue;
+    display: flex;
+}
+
+.Main {
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+
+main strong {
+    font-size: 50px;
+    color: #7bed9f;
+    display: block;
+}
+
+main .img {
+    width: 350px;
+    height: 250px;
+    background-color: aqua;
+    margin-left: 50px;
+}
+
+.text-button {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.text-button a {
+    text-decoration: none;
+    background-color: #7bed9f;
+    border-radius: 10px;
+    color: black;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.text-button a:hover {
+    background-color: #b4f3c6;
+}
