@@ -16,7 +16,7 @@ function App() {
                   </div>
               } />
 
-              <Route path="/getIntoAccount" element={GetIntoAccount} />
+              <Route path="/getIntoAccount" element={<GetIntoAccount />} />
           </Routes>
       </Router>
   )
