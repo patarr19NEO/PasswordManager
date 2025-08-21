@@ -1,22 +1,3 @@
 body {
     background-color: #121212;
 }
-
-header {
-    background-color: #0a192f;
-    display: flex;
-    justify-content: flex-start;
-    color: aliceblue;
-}
-
-.logo {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo img {
-    width: 100px;
-    height: 100px;
-}

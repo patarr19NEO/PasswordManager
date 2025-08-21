@@ -1,0 +1,44 @@
+header {
+    background-color: #0a192f;
+    display: flex;
+    justify-content: flex-start;
+    color: aliceblue;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 70px;
+    height: 70px;
+}
+
+nav {
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+nav li {
+    cursor: pointer;
+}
+
+header a {
+    text-decoration: none;
+    background-color: #7bed9f;
+    border-radius: 10px;
+    color: black;
+    padding: 10px;
+    cursor: pointer;
+}
