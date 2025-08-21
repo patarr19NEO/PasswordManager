@@ -1,0 +1,22 @@
+main {
+    color: aliceblue;
+    display: flex;
+}
+
+.Main {
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+
+main strong {
+    font-size: 50px;
+    color: #7bed9f;
+}
+
+main .img {
+    width: 350px;
+    height: 250px;
+    background-color: aqua;
+    margin-left: 50px;
+}

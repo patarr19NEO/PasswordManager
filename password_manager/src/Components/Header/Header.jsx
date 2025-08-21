@@ -3,7 +3,7 @@ import "./Header.css"
 
 function Header() {
     return (
-        <div className="header">
+        <div className="Header">
             <header>
                 <div className="logo">
                     <img src="./assets/icon-key/icon-key.png" alt="logo-key"/>
