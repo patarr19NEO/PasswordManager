@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import "./Header.css"
 
 function Header() {
@@ -16,7 +17,9 @@ function Header() {
                         <li>Prices</li>
                     </ul>
                 </nav>
-                <a href="#" className="buy-button">Try NOW for FREE</a>
+                <a>
+                    <Link to="/getIntoAccount">Try NOW for FREE</Link>
+                </a>
             </header>
         </div>
     )

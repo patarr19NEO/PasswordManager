@@ -44,3 +44,7 @@ header a {
     cursor: pointer;
     margin-right: 200px;
 }
+
+header a:hover {
+    background-color: #7bed9f;
+}
