@@ -24,8 +24,36 @@ function GetIntoAccount() {
             setTimeout(() => {
                 setError("")
             }, 5000)
+            return;
         } else {
             alert("Ok");
+             try {
+                 const response = await fetch("http://127.0.0.1:5000/api/users", {
+                     method: "POST",
+                     headers: {
+                         "Content-Type": "application/json",
+                     },
+                     body: JSON.stringify({"email": email, "password": password})
+                 })
+
+                 if (!response.ok) {
+                     const errorData = await response.json()
+                     throw new Error("Failed to fetch users")
+                 }
+
+                 const res = await response.json()
+
+                 //here next logic
+                 alert(res.message)
+                 console.log("Success", res)
+             } catch (err) {
+                 console.log(err)
+                 setError("Some error. Please try again or wait")
+
+                 setTimeout(() => {
+                     setError("")
+                 }, 5000)
+             }
         }
     }
 
