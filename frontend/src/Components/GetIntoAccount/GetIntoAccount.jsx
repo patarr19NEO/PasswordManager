@@ -2,6 +2,8 @@ import React, {useState} from "react"
 import "./GetIntoAccount.css"
 
 function GetIntoAccount() {
+    const [inter2, showInter2] = useState(false)
+
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
@@ -45,7 +47,6 @@ function GetIntoAccount() {
 
                  //here next logic
                  alert(res.message)
-                 console.log("Success", res)
              } catch (err) {
                  console.log(err)
                  setError("Some error. Please try again or wait")
