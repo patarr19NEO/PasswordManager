@@ -2,11 +2,10 @@ import React, {useState} from "react"
 import "./GetIntoAccount.css"
 
 function GetIntoAccount() {
-    const [inter2, showInter2] = useState(false)
-
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
+    const [loading, setLoading] = useState(false)
 
     const handleEmail = (e) => {
         const value = e.target.value
@@ -19,16 +18,17 @@ function GetIntoAccount() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        setLoading(true)
 
         if (!email || !password || !email.includes("@") || password.length <= 5) {
             setError("Please, enter a valid email address or password");
+            setLoading(false)
 
             setTimeout(() => {
                 setError("")
             }, 5000)
             return;
         } else {
-            alert("Ok");
              try {
                  const response = await fetch("http://127.0.0.1:5000/api/users", {
                      method: "POST",
@@ -44,11 +44,13 @@ function GetIntoAccount() {
                  }
 
                  const res = await response.json()
+                 setLoading(false)
 
                  //here next logic
                  alert(res.message)
              } catch (err) {
                  console.log(err)
+                 setLoading(false)
                  setError("Some error. Please try again or wait")
 
                  setTimeout(() => {
@@ -71,8 +73,11 @@ function GetIntoAccount() {
                             <p> and </p>
                             <span className="pp">Privacy policy</span>
                         </div>
+                        {loading && <p className="loading">Loading...</p>}
                         <p className="error">{error}</p>
-                        <a className="submit" onClick={handleSubmit}>Go!</a>
+                        <button type="submit" className="submit" disabled={loading}>
+                            {loading ? "Loading..." : "Go!"}
+                        </button>
                     </div>
                 </div>
             </form>
