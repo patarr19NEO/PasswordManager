@@ -32,6 +32,12 @@
     margin-right: auto;
     max-width: max-content; /* ограничивает ширину по содержимому */
     border-radius: 10px;
+    flex-direction: column;
+    text-align: center;
+}
+
+.window h1 {
+    color: aliceblue;
 }
 
 .agreement {
