@@ -64,6 +64,7 @@ function GetIntoAccount() {
         <div className="GetIntoAccount">
             <form onSubmit={handleSubmit}>
                 <div className="window">
+                    <h1>Get into account</h1>
                     <div className="window-reg">
                         <input onChange={handleEmail} value={email} type="text" placeholder="Mail" />
                         <input onChange={handlePassword} value={password} type="password" placeholder="Password" />
@@ -75,9 +76,14 @@ function GetIntoAccount() {
                         </div>
                         {loading && <p className="loading">Loading...</p>}
                         <p className="error">{error}</p>
-                        <button type="submit" className="submit" disabled={loading}>
-                            {loading ? "Loading..." : "Go!"}
-                        </button>
+                        <a onClick={handleSubmit} className="submit" disabled={loading}>Go</a>
+                        {(() => {
+                                if (loading) {
+                                    return "Loading..."
+                                } else {
+                                    return ""
+                                }
+                            })()}
                     </div>
                 </div>
             </form>
