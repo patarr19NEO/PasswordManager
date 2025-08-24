@@ -77,13 +77,6 @@ function GetIntoAccount() {
                         {loading && <p className="loading">Loading...</p>}
                         <p className="error">{error}</p>
                         <a onClick={handleSubmit} className="submit" disabled={loading}>Go</a>
-                        {(() => {
-                                if (loading) {
-                                    return "Loading..."
-                                } else {
-                                    return ""
-                                }
-                            })()}
                     </div>
                 </div>
             </form>
