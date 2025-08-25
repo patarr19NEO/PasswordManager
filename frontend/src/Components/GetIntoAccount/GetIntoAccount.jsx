@@ -1,11 +1,23 @@
 import React, {useState} from "react"
 import "./GetIntoAccount.css"
-
+import ModalWin from "/src/Components/Modal-Win/Modal-Win.jsx"
 function GetIntoAccount() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
+    const [isModalOpen, setIsModalOpen] = useState(false)
+
+    const showModal = () => {
+        if (isModalOpen) {
+            return (
+                <div className="modal-win">
+                    <ModalWin title="Modal" content="Hello!" />
+                </div>
+            )
+        }
+        return null;
+    }
 
     const handleEmail = (e) => {
         const value = e.target.value
@@ -22,7 +34,8 @@ function GetIntoAccount() {
 
         if (!email || !password || !email.includes("@") || password.length <= 5) {
             setError("Please, enter a valid email address or password");
-            setLoading(false)
+            setLoading(false);
+            setIsModalOpen(true)
 
             setTimeout(() => {
                 setError("")
@@ -77,9 +90,17 @@ function GetIntoAccount() {
                         {loading && <p className="loading">Loading...</p>}
                         <p className="error">{error}</p>
                         <a onClick={handleSubmit} className="submit" disabled={loading}>Go</a>
+                        {(() => {
+                                if (loading) {
+                                    return "Loading..."
+                                } else {
+                                    return ""
+                                }
+                            })()}
                     </div>
                 </div>
             </form>
+            {showModal()}
         </div>
     )
 }
