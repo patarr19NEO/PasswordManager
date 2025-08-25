@@ -40,6 +40,10 @@ function GetIntoAccount() {
             setTimeout(() => {
                 setError("")
             }, 5000)
+
+            setTimeout(() => {
+                setIsModalOpen(false)
+            }, 5000)
             return;
         } else {
              try {
