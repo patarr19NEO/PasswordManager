@@ -40,11 +40,8 @@ function GetIntoAccount() {
             setIsModalOpen(true)
 
             setTimeout(() => {
-                setError("")
-            }, 5000)
-
-            setTimeout(() => {
-                setIsModalOpen(false) // 4 unnecessary line lmao
+                setError("");
+                setIsModalOpen(false)
             }, 5000)
             return;
         } else {
@@ -58,13 +55,12 @@ function GetIntoAccount() {
                  })
 
                  if (!response.ok) {
-                     const errorData = await response.json() // i dunno for what
-                     throw new Error("Failed to fetch users")
+                     const errorData = await response.json()
+                     throw new Error(errorData.error || "Failed to authenticate user")
                  }
 
-                 setServerResponse(data.message)
-
                  const res = await response.json()
+                 setServerResponse(res.message)
                  setLoading(false)
                  setIsModalOpen(true)
 
@@ -75,16 +71,12 @@ function GetIntoAccount() {
              } catch (err) {
                  console.log(err)
                  setLoading(false)
-                 setError("Some error. Please try again or wait")
-                 setServerResponse(err)
+                 setError(err.message || "Some error. Please try again or wait")
                  setIsModalOpen(true)
 
                  setTimeout(() => {
-                    setIsModalOpen(false)
-                 }, 5000)
-
-                 setTimeout(() => {
-                     setError("")
+                     setError("");
+                     setIsModalOpen(false)
                  }, 5000)
              }
         }
@@ -106,14 +98,14 @@ function GetIntoAccount() {
                         </div>
                         {loading && <p className="loading">Loading...</p>}
                         <p className="error">{error}</p>
-                        <a onClick={handleSubmit} className="submit" disabled={loading}>Go</a>
-                        {(() => {
+                        <button type="submit" className="submit" disabled={loading}>Go</button>
+                        {/*(() => {
                                 if (loading) {
                                     return "Loading..."
                                 } else {
                                     return ""
                                 }
-                            })()}
+                            })()*/}
                     </div>
                 </div>
             </form>
