@@ -98,7 +98,7 @@ function GetIntoAccount() {
                         </div>
                         {loading && <p className="loading">Loading...</p>}
                         <p className="error">{error}</p>
-                        <button type="submit" className="submit" disabled={loading}>Go</button>
+                        <a type="submit" className="submit" disabled={loading}>Go</a>
                         {/*(() => {
                                 if (loading) {
                                     return "Loading..."
