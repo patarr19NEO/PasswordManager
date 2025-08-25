@@ -7,12 +7,13 @@ function GetIntoAccount() {
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
     const [isModalOpen, setIsModalOpen] = useState(false)
+    const [serverResponse, setServerResponse] = useState("")
 
     const showModal = () => {
         if (isModalOpen) {
             return (
                 <div className="modal-win">
-                    <ModalWin title="Modal" content="Hello!" />
+                    <ModalWin title={error ? "Error" : "Server Response"} content={error ? error : serverResponse} />
                 </div>
             )
         }
@@ -31,6 +32,7 @@ function GetIntoAccount() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         setLoading(true)
+        setServerResponse("")
 
         if (!email || !password || !email.includes("@") || password.length <= 5) {
             setError("Please, enter a valid email address or password");
@@ -42,7 +44,7 @@ function GetIntoAccount() {
             }, 5000)
 
             setTimeout(() => {
-                setIsModalOpen(false)
+                setIsModalOpen(false) // 4 unnecessary line lmao
             }, 5000)
             return;
         } else {
@@ -56,19 +58,30 @@ function GetIntoAccount() {
                  })
 
                  if (!response.ok) {
-                     const errorData = await response.json()
+                     const errorData = await response.json() // i dunno for what
                      throw new Error("Failed to fetch users")
                  }
 
+                 setServerResponse(data.message)
+
                  const res = await response.json()
                  setLoading(false)
+                 setIsModalOpen(true)
 
-                 //here next logic
-                 alert(res.message)
+                 setTimeout(() => {
+                    setIsModalOpen(false)
+                 }, 5000)
+
              } catch (err) {
                  console.log(err)
                  setLoading(false)
                  setError("Some error. Please try again or wait")
+                 setServerResponse(err)
+                 setIsModalOpen(true)
+
+                 setTimeout(() => {
+                    setIsModalOpen(false)
+                 }, 5000)
 
                  setTimeout(() => {
                      setError("")

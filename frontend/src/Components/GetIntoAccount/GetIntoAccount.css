@@ -73,8 +73,10 @@
 }
 
 .modal-win {
-    height: 100px;
-    width: 300px;
+    height: 70px;
+    width: 400px;
     border-radius: 10px;
     background-color: #7bed9f;
+    padding-left: 5px;
+    align-items: center;
 }

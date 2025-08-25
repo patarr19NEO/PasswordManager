@@ -1,4 +1,5 @@
 import React from "react";
+import "./Modal-Win.css"
 
 function ModalWin({title, content}) {
 
