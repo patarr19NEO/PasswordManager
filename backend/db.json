@@ -1,3 +1,8 @@
 {
-    "users": {}
+    "users": {
+        "yura@main.ru": {
+            "email": "yura@main.ru",
+            "password": "1234567"
+        }
+    }
 }

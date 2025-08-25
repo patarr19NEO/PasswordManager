@@ -71,3 +71,10 @@
 .submit:hover {
     background-color: #b4f3c6;
 }
+
+.modal-win {
+    height: 100px;
+    width: 300px;
+    border-radius: 10px;
+    background-color: #7bed9f;
+}

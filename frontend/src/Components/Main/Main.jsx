@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from 'react-router-dom';
 import "./Main.css";
-import ModalWin from "./Modal-Win/Modal-Win.jsx"
 
 function Main() {
     return (
