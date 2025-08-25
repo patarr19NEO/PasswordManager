@@ -3,6 +3,10 @@
         "yura@main.ru": {
             "email": "yura@main.ru",
             "password": "1234567"
+        },
+        "yura@main.us": {
+            "email": "yura@main.us",
+            "password": "lmaojihdiufhsdf"
         }
     }
 }

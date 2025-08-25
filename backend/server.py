@@ -43,7 +43,7 @@ def users():
             
             # Check if user already exists
             if gotten_data["email"] in data["users"]:
-                return jsonify({"message": "User already exists!", "code": "user exists"}), 200
+                return jsonify({"message": "User already exists! Try to change your mail", "code": "user exists"}), 200
 
             # Add new user
             data["users"][gotten_data["email"]] = {
